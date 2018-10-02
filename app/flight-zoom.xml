@@ -1,0 +1,51 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="pageNavigatedTo" class="page" xmlns:map="nativescript-mapbox" loaded="pageLoaded"  backgroundColor="#182126">
+    <Page.actionBar>
+        <ActionBar title="{{ flightTitle }}" icon="" class="action-bar" backgroundColor="#2b3438" id="actionTitle">
+            <ActionItem tap="switchMap" ios.position="right" android.position="actionBar" icon="res://ic_map" id="actionIcon"></ActionItem>
+        </ActionBar>
+    </Page.actionBar>
+
+    <GridLayout rows="*, 55, 35, 20">
+        <ContentView row="0" id="mapa">    
+            <StackLayout>
+                <ContentView height="100%" width="100%" tap="onShowMap">
+                    <map:MapboxView
+                        accessToken="pk.eyJ1IjoiZDNtYWMxMjMiLCJhIjoiY2oyZzRjazFwMDd2MzMyczZtMzg1Njl5eSJ9.w2K2EUOZzxtCqqAARGBbZA"
+                        mapStyle="streets"
+                        latitude="26.127116"
+                        longitude="-80.165747"
+                        zoomLevel="3"
+                        showUserLocation="false"
+                        mapReady="onMapReady">
+                    </map:MapboxView>
+                </ContentView>
+            </StackLayout>   
+        </ContentView>
+        <ContentView row="1" id="details">
+                <StackLayout class="flightBackground">
+                    <!--   <Label text="{{ flightPlace + flightTime }}" class="flightTime" id="flightTime" horizontalAlignment="center"/> -->
+                        <GridLayout columns="*,*,*,*" rows="*">
+                            <Label text=""  class="whiteFields" horizontalAlignment="center" col="0" id="flightDistanceHolder" />   
+                            <Label text="{{ L('distance') }}"  class="blueDur" horizontalAlignment="center" col="0"/>
+                            
+                            <Label text=""  class="whiteFields" horizontalAlignment="center" col="1" id="flightDurationHolder"/>
+                            <Label text="{{ L('duration') }}"  class="blueDur" horizontalAlignment="center" col="1"/>
+                            
+                            <Label text=""  class="whiteFields" horizontalAlignment="center" col="2" id="flightSpeedHolder"/>
+                            <Label text="{{ L('speed') }}"  class="blueDur" horizontalAlignment="center" col="2" />
+                            
+                            <Label text=""  class="whiteFields" horizontalAlignment="center" col="3" id="flightAltitudeHolder"/> 
+                            <Label text="{{ L('altitude') }}"  class="blueDur" horizontalAlignment="center" col="3" />
+                                                      
+                        </GridLayout>
+                </StackLayout>
+        </ContentView>
+        <ContentView row="2" id="sliderArea">
+            <GridLayout columns="auto, *, auto">
+                <Label text="" class="hStart" id="startFlight" col="0" horizontalAlignment="center"/>
+                <Slider value="{{ sliderValue }}" maxValue="100" minValue="0" class="slider" id="slider" col="1"  horizontalAlignment="center" />
+                <Label text="" class="hEnd" id="endFlight" col="2"  horizontalAlignment="center"/>
+            </GridLayout>
+        </ContentView>
+    </GridLayout>
+</Page>
