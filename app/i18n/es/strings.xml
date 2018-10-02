@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PPG Finder</string>
+    <string name="title_activity_kimera">PPG Finder</string>
+        <!-- app.js -->
+        <string name="noConnectivity">No está conectado a Internet. Conéctate para ver mapas y otros pilotos.</string>
+        <string name="wifiConnectivity">Conexión wifi.</string>
+        <string name="mobileConnectivity">Conexión Móvil.</string> 
+        <string name="notConnectedTitle">Conexión de Red</string>
+        <string name="notConnected">No está conectado a Internet. Usted puede considerar la conexión (quizá a través de un HotSpot Personal) para ver mapas y otros pilotos.</string>
+        <!-- main-pages -->
+        <string name="FacebookLogin">LOGIN CON FACEBOOK</string>
+        <string name="EmailLogin">LOGIN CON CORREO</string>
+        <string formatted="false" name="version">versión %s</string>
+        <!-- email-pages -->
+        <string name="email">Correo:</string>
+        <string name="password">Contraseña:</string>
+        <string name="login">LOGIN</string>
+        <string name="createAccount">CREAR CUENTA</string>
+        <string name="emailHint">su-correo@domain.com</string>
+        <string name="passHint">su-contraseña</string>
+        <string name="reset">Restablecer Contraseña</string>
+        <string name="resetError">Primeiro ingrese su correo electrónico.</string>
+        <string name="resetEmail">Se le envió un correo electrónico con instrucciones sobre cómo restablecer su contraseña. Por favor revisa tu inbox.</string>
+        <!-- settings-pages -->
+        <string name="settingsTitle">Configuracción</string>
+        <string name="update">ACTUALIZAR</string>
+        <string name="autoZoom">Auto zoom: </string>
+        <string name="map">Mapa:</string>
+        <string name="imperial"> Imperial (millas/ft)</string>
+        <string name="metric">Métrico (km/m) </string>
+        <string name="glider">Colores del Parapente:</string>
+        <string name="nickname">Entre con tu apodo abajo</string>
+        <string name="hintNick">su apodo</string>
+        <string formatted="false" name="helloPilot">Hola %s</string>
+        <string name="colorBlinded">Daltónico? </string>
+        <string name="voiceAlert">Alerta por Voz: </string>
+        <string name="logout">CERRAR</string>
+        <string name="goPro_control">Control GoPro: </string>
+        <string name="changePicture">Clic icono para cambiar la foto</string>
+        <string name="altAlert">Alerta de Altitud: </string>
+        <!-- flights-page -->
+        <string name="flightsTitle">Mis Vuelos</string>
+        <string name="sun">Dom</string>
+        <string name="mon">Lun</string>
+        <string name="tue">Mar</string>
+        <string name="wed">Mié</string>
+        <string name="thu">Jue</string>
+        <string name="fri">Vie</string>
+        <string name="sat">Sáb</string>
+        <string name="loadingTitle">Cargando sus vuelos</string>
+        <string name="loadingContent">Esto puede tomar un tiempo, pero, espera, que están llegando!</string>
+        <string name="noFlightsYet">Todavía no tienes vuelos!</string>
+        <string name="reloadTitle">¿Forzar la recarga de todos tus vuelos?</string>
+        <string name="reloadMessage">Esto puede tomar un tiempo dependiendo de la cantidad de vuelos que tenga.</string>
+        <!-- flight-page -->
+        <string name="sunday">Domingo</string>
+        <string name="monday">Lunes</string>
+        <string name="tuesday">Martes</string>
+        <string name="wednesday">Miércoles</string>
+        <string name="thursday">Jueves</string>
+        <string name="friday">Viernes</string>
+        <string name="saturday">Sábado</string>
+        <string name="duration">Duración</string>
+        <string name="maxAltitude">Max. Altitud</string>
+        <string name="distance">Distancia</string>
+        <string name="avgSpeed">Velocidad Média</string>
+        <string name="maxSpeed">Velocidad Máx.</string>
+        <string name="delete">BORRAR</string>
+        <string name="markerStartTitle">Inicio</string>
+        <string name="markerStartContent">Su vuelo comenzó aquí!</string>
+        <string name="markerEndTitle">Fin</string>
+        <string name="markerEndContent">Su vuelo terminó aquí!</string>
+        <string formatted="false" name="confirmDeletionTitle">Borrar Vuelo %s</string>
+        <string name="confirmDeletionMsg">¿Confirma esta eliminación de vuelo?</string>
+        <string formatted="false" name="shareText">Mi vuelo grabado por PPG Finder - %s.\r\nhttp://www.asouza.com/ppgFinder</string>
+        <string formatted="false" name="shareImage">Grabado por la app PPG Finder - %s.</string>
+        <string name="graphTitle">Rendimiento de Altitud y Velocidad</string>
+        <string name="share">COMPARTIR</string>
+        <string name="place">Nombre del lugar (opcional):</string>
+        <string name="ratings">How was that?</string>
+        <string name="info">Descripción (opcional):</string>
+        <string name="exportKML">EXPORTAR</string>
+        <string name="exportGPX">EXPORTAR</string>
+        <string name="save">Salvar</string>
+        <string name="cancel">Cancelar</string>
+        <string name="snapshot_edit_title">Edición de Snapshot</string>
+        <string formatted="false" name="snapshot_edit_msg">Qué viste alrededor de %s?</string>
+        <string name="clickPlayback">Clic en el mapa para reproducir el vuelo</string>
+        <string name="flightBuddies">Volaram conmigo</string>
+        <!-- dash-pages -->
+        <string name="me">YO</string>
+        <string name="start">EMPEZAR</string>
+        <string name="stop">TERMINAR</string>
+        <string name="N">N</string>
+        <string name="NNE">NNE</string>
+        <string name="NE">NE</string>
+        <string name="ENE">ENE</string>
+        <string name="E">E</string>
+        <string name="ESE">ESE</string>
+        <string name="SE">SE</string>
+        <string name="SSE">SSE</string>
+        <string name="S">S</string>
+        <string name="SSW">SSO</string>
+        <string name="SW">SO</string>
+        <string name="WSW">OSO</string>
+        <string name="W">O</string>
+        <string name="WNW">ONO</string>
+        <string name="NW">NO</string>
+        <string name="NNW">NNO</string>
+        <string name="yes">Sí</string>
+        <string name="no">No</string>
+        <string name="endFlightTitle">Terminar Vuelo</string>
+        <string name="endFlightMsg">¿Quieres terminar este vuelo?</string>
+        <string name="msgTimeFlyTitle">Hora de Volar!</string>
+        <string name="msgTimeFly">¡Feliz de verte aquí otra vez! Disfrute de sus vuelos!</string>
+        <string name="msgBackTitle">Regresando!</string>
+        <string name="msgBack">Se envió un mensaje informándo que regresas al origen.</string>
+        <string name="msgBackShort">está regresando al origen.</string>
+        <string name="msgEngineOutTitle">Parada del Motor!</string>
+        <string name="msgEngineOut">Se envió un mensaje informándo que tuviste una parada de motor.</string>
+        <string name="msgEngineOutShort">tuvo una parada de motor en </string>
+        <string name="msgFrom">Mensaje de</string>
+        <string name="msgSecAgo"> seg atrás)</string>
+        <string name="msgSecAgoLong"> seg atrás) - HAGA CLIC AQUÍ PARA OBTENER DIRECCIONES</string>
+        <string name="errorOrigin">Error al obtener el origen: </string>
+        <string name="errorStartingFlight">Error al iniciar el vuelo</string>
+        <string name="speed">Velocidad</string>
+        <string name="altitude">Altitud</string>
+        <string name="heading">Dirección</string>
+        <string name="origin">Origen</string>
+        <string name="msgTookOff">acaba de despegar.</string>
+        <string name="msgLanded">acaba de aterrizar.</string>
+        <string name="noInternet">Usted no está conectado a Internet en este momento. Asegúrate de estar en línea antes de terminar tu vuelo.</string>
+        <string name="msgRoutePlanTitle">Un nuevo plan de ruta fue compartida!!</string>
+        <string name="msgRoutePlanSent">Se envió la mensaje del plan de ruta.</string>
+        <string formatted="false" name="msgRoutePlanMsg">compartió el plan de ruta de %s!</string>
+        <string name="msgRoutePlanMsgReceived">compartió el plan de ruta! Haga clic para descargarlo.</string>
+        <string formatted="false" name="msgFlyingClose">está muy cerca, %s %s, %s! Esteja atento.</string>
+        <string name="North">Norte</string>
+        <string name="South">Sur</string>
+        <string name="East">Este</string>
+        <string name="West">Oeste</string>
+        <string name="above">arriba</string>
+        <string name="below">abajo</string>
+        <string name="left">a su izquierda</string>
+        <string name="right">a su direita</string>
+        <string name="front">en frente de ti</string>
+        <string name="behind">atrás de ti</string>
+        <string name="feet">piés</string>
+        <string name="meters">metros</string>
+        <string name="attentionTailWind">Ten cuidado! Pareces estar volando con viento de cola a una altitud muy baja. Esto es peligroso!</string>
+        <string name="attentionCrossWind">Ten cuidado! Pareces estar volando con viento cruzado a una altitud muy baja. Deberias evitar eso!</string>
+        <string name="routePlanning">Planificacion de Ruta</string>
+        <string name="trackTracking">Rastreando</string>
+        <string name="distPoint">Distancia/Tiempo a Punto</string>
+        <string name="alertUploadRoute">Toca el mapa para comenzar a dibujar tus waypoints. Luego sube tu ruta.</string>
+        <string name="alertDownloadRoute">No tiene ninguna ruta guardada para descargar.</string>
+        <string name="alertDeletedRoute">Toca el mapa para comenzar a dibujar tus waypoints. No tienes una ruta para limpiar.</string>
+        <string name="windIn">Viento en</string>
+        <string name="windGust">ráfagas de</string>
+        <string name="continueFlightTitle">CONTINUAR VUELO ANTERIOR?</string>
+        <string name="continueFlightMessage">Tu último vuelo no fue terminado. Continuar o iniciar uno nuevo?</string>
+        <string name="continueFlight">Continuar</string>
+        <string name="startNew">Comenzar Nuevo</string>
+        <string name="airspace_class">CLASE</string>
+        <string name="airspace">espacio aéreo (</string>
+        <string name="airspace_permission">) requiere permiso para volar.</string>
+        <string name="airspace_max">Alt. max. segura:</string>
+        <string name="airspace_leave"> - SALIR AGORA!</string>
+        <string name="airspace_low"> - Vuela lo más bajo posible.</string>
+        <string name="airspace_avoid">) debe ser evitado.</string>
+        <string name="airspace_mustAvoid">) DEBE SER EVITADO!</string>
+        <string name="airspace_safe">) es seguro para volar.</string>
+        <string name="airspace_unknown">) puede o no ser seguro para volar.</string>
+        <string name="airspace_danger">PELIGRO</string>
+        <string name="airspace_restricted">RESTRINGIDO</string>
+        <string name="airspace_prohibited">PROHIBIDO</string>
+        <string formatted="false" name="airspace_up_title">Nuevos datos de espacio aéreo para %s están disponibles para su descarga.</string>    
+        <string name="airspace_up_msg">Dependiendo del tamaño del país, puede tomar varios minutos. ¿Te gustaría descargarlo ahora?</string>
+        <string name="airspace_feed_title">Cargando espacio aéreo...</string>  
+        <string name="airspace_feed_msg">Esto puede tardar unos minutos...</string>
+        <string name="snapshot_title">Instantánea tomada!</string>  
+        <string name="snapshot_msg">Puede editar su información de snapshot en la pantalla de vuelo.</string>
+        <string name="camera_attentionTitle">Atención de la cámara</string>
+        <string name="camera_attention_cameraOFF">Verifique si su cámara está encendida y asegúrese de estar en la misma red WiFi.</string>
+        <string name="do_not_show_again">No Mostrar de Nuevo</string>
+        <string name="camera_attention_turnOFF">Desactivar la Cámara</string>
+        <string name="camera_attention_noSD">No hay una tarjeta sd en su cámara.</string>
+        <string name="camera_attention_batteryEmpty">La batería de su cámara está vacía.</string>
+        <string name="camera_attention_batterySD">Su batería está baja y no hay una tarjeta sd en su cámara.</string>
+        <string name="camera_attention_batteryLow">La batería de su cámara está baja.</string>
+        <string name="camera_attention_tryAgain">Inténtalo de Nuevo</string>
+</resources>
