@@ -1,0 +1,25 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" class="page" backgroundColor="#182126">
+    <!--
+    The ActionBar is the NativeScript common abstraction over the Android ActionBar and iOS NavigationBar.
+    http://docs.nativescript.org/ui/action-bar
+    -->
+    <Page.actionBar>
+        <ActionBar title="Email Login" icon="" class="action-bar" backgroundColor="#2b3438">
+        </ActionBar>
+    </Page.actionBar>
+
+    <ScrollView orientation="vertical">
+            <GridLayout rows="50,20,60,1,30,20,60,1,*,100,180" >
+                    <Label text="{{ L('email') }}" class="regText" row="1"/>
+                    <TextField id="email" text="{{ email }}" hint="{{ L('emailHint') }}" keyboardType="email" autocorrect="false" autocapitalizationType="none" class="txtNick"  row="2" />
+                    <ContentView row="3" backgroundColor="#3AB8FF" />
+                    <Label text="{{ L('password') }}" class="regText" row="5"/>
+                    <TextField id="password" text="{{ password }}" hint="{{ L('passHint') }}" keyboardType="email" autocorrect="false" autocapitalizationType="none" class="txtNick"  row="6"  secure="true"/>
+                    <ContentView row="7" backgroundColor="#3AB8FF" />
+                    <Button text="{{ L('login') }}" tap="{{ loginEmail }}" class="btn btn-primary btn-active but"  row="9"/>
+                    <Button text="{{ L('createAccount') }}" tap="{{ createEmail }}" class="btn btn-primary btn-active butCreate"  row="9"/>
+                    <Button text="{{ L('reset') }}" tap="{{ resetPassword }}" row="10" class="resetPwd"/>
+            </GridLayout>
+
+    </ScrollView>
+</Page>

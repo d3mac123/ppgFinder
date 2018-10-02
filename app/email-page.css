@@ -1,0 +1,37 @@
+.regText {
+    text-align: left;
+    font-size: 14;
+    color: lightslategray;
+    margin-left: 15;
+}
+
+.txtNick {
+    text-align: center;
+    text-decoration-line: 1;
+    text-decoration-style: solid;
+    color: white;
+    font-size: 24;
+    placeholder-color: white;
+}
+
+.butLogin {
+    margin-top: 30;
+    padding-top: 30;
+}
+
+.but{
+    height: 60;
+}
+
+.butCreate {
+    height: 60;
+    background-color: #FD4220;
+    margin-top: 150;
+}
+
+.resetPwd {
+    color: orange;
+    background-color: #182126;
+    height: 60;
+    margin-top: 20;
+}

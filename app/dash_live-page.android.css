@@ -1,0 +1,673 @@
+Page {
+    /* background-image: ~/images/background.jpg; */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+ActionBar {
+    background-color: gray;
+    color: white;
+}
+
+.topBar {
+    background-color: darkslategrey;
+    margin-top: 0
+}
+.bottomBar {
+    background-color: #0E1417;
+    padding: 5;
+}
+.map {
+    margin-top: 0; 
+    margin-left: 0;
+
+}
+
+.sidedrawer-content {
+    padding: 5;
+    background-color: #2b3438
+}
+.sidedrawer-left {
+    background-color: #2b3438
+}
+.list-pilots {
+     background-color: #2b3438
+}
+.lineDivider {
+    margin-bottom: -60;
+}
+
+.butDrawer {
+    width: 25;
+    height: 25;
+    margin-left: -90;
+    margin-top: -20;
+}
+.totActive {
+    color: white;
+    font-size: 24;
+    margin-right: 5;
+    text-align: right;
+    margin-top: -5;
+    font-weight: bold;
+}
+
+ListView {
+    separator-color: lightgray;
+    background-color: #1F272A;
+    padding: 5;
+    /*height: 600;*/ 
+}
+.listPhoto {
+    width: 40;
+    height: 40;
+    background-size: cover;
+    display: block;
+    border-radius: 20;
+    -webkit-border-radius: 20;
+    -moz-border-radius: 20;
+    border-color: lightgray;
+    border-width: 2;
+    margin-bottom: 5;
+    margin-top: 5;
+    margin-left: 0; 
+}
+.listNick {
+    color: white;
+    font-size: 16;
+    font-weight: bold;
+    text-align: left;
+    margin-left: 0;
+    margin-top: 5;
+}
+.listDistance {
+    color: white;
+    font-size: 16;
+    font-weight: bold;
+    text-align: right;
+    margin-right: 10;
+    margin-top: 5;
+}
+.listAltitude {
+    color: lightgray;
+    font-size: 16;
+    text-align: left;
+    margin-left: 50;
+    margin-top: 30;
+}
+.listIcon {
+    width: 18;
+    height: 18;
+    margin-left: 25;
+    margin-top: 30;
+}
+.listHeading {
+    color: lightgray;
+    font-size: 16;
+    text-align: left;
+    margin-left: 0;
+    margin-top: 30;
+}
+.listSpeed {
+    color: lightgray;
+    font-size: 16;
+    text-align: right;
+    margin-right: 10;
+    margin-top: 30;
+}
+
+
+.compass {
+    width: 35;
+    margin-right: -240;
+    margin-top: 200;
+}
+.compassBack {
+    margin-top: 60;
+    height: 40;
+
+
+}
+
+.compassHead {
+    width: 14;
+    height: 9;
+    margin-left: -250;
+    margin-bottom: -880;
+}
+.altIcon {
+    margin-top: -30;
+    margin-right: 135;
+    width: 11;
+    height: 11;
+}
+.altTag {
+    color: lightgray;
+    font-size: 10;
+    margin-right: 20;
+    margin-bottom: -45;
+    align-content: right;
+    text-align: right;
+}
+.altText {
+    color: white;
+    font-size: 50;
+    margin-right: 25;
+    margin-top: -5;
+    text-align: right;
+    font-weight: 600;
+}
+.durIcon {
+    margin-bottom: -10;
+    margin-left: 10;
+    width: 12;
+    height: 12;
+    align-content: left;
+    align-items: left;
+    align-self: left;
+}
+.durTag {
+    color: lightgray;
+    font-size: 10;
+    margin-left: 5;
+    margin-top: 25;
+    align-content: center;
+    text-align: center;
+}
+.durText {
+    color: white;
+    font-size: 18;
+    align-content: left;
+    text-align: left;
+    padding-right: 8;
+    padding-left: 5;
+    margin-bottom: 0;
+    height:20;
+    margin-top: -5;
+    align-self: baseline;
+}
+.distIcon {
+    margin-bottom: -10;
+    width: 12;
+    height: 12;
+    margin-left: 10;
+}
+.distTag {
+    color: lightgray;
+    font-size: 10;
+    margin-right: 0;
+    margin-top: 25;
+    align-content: right;
+    text-align: right;
+}
+.distText {
+    color: white;
+    font-size: 18;
+    align-content: left;
+    text-align: left;
+    padding-right: 8;
+    padding-left: 5;
+    margin-bottom: 0;
+    height:20;
+    margin-top: -5;
+    align-self: baseline;
+}
+.windIcon {
+    margin-bottom: -10;
+    width: 12;
+    height: 12;
+    margin-left: 10;
+}
+.windText {
+    color: white;
+    font-size: 18;
+    align-content: left;
+    text-align: left;
+    padding-right: 8;
+    padding-left: 5;
+    margin-bottom: 0;
+    height:20;
+    margin-top: -5;
+    align-self: baseline;
+}
+.originHead {
+    color: white;
+    font-size: 18;
+    margin-left: 5;
+    margin-top: 18;
+    text-align: left;
+}
+.originDist {
+    color: lightgray;
+    font-size: 16;
+    margin-top: 15;
+    text-align: left;
+    margin-top: 38;
+    margin-left: 2;
+}
+.originDur {
+    color: white;
+    font-size: 24;
+    font-weight: bold;
+    margin-top: 12;
+    text-align: left;
+    margin-left: 0;
+}
+.speedIcon {
+    margin-top: -30; /*-80*/
+    margin-left: 10;
+    width: 11;
+    height: 11;
+    align-content: left;
+    align-items: left;
+    align-self: left;
+}
+.speedTag {
+    color: lightgray;
+    font-size: 10;
+    margin-left: 105;
+    margin-bottom: -20;
+    align-content: left;
+    text-align: left;
+    height: 35;
+}
+.speedText {
+    color: white;
+    font-size: 52;
+    margin-left: 30;
+    margin-top: -5;
+    text-align: left;
+    text-decoration-style: solid;
+    font-weight: 600;
+}
+.maxSpeedText {
+    color: #FFC400;
+    font-size: 28;
+    font-weight: 400;
+    margin-top: 30;
+    margin-left: 100;
+    align-content: left;
+    align-items: left;
+    align-self: left;
+
+    height: 40;
+}
+
+/* iOS */
+
+
+.originHead {
+    color: white;
+    font-size: 18;
+    margin-left: 5;
+    margin-top: 5;
+    text-align: left;
+}
+.originDur {
+    color: white;
+    font-size: 24;
+    font-weight: normal;
+    margin-top: 5;
+    text-align: center;
+}
+.originDist {
+    color: white;
+    font-size: 24;
+    text-align: right;
+    margin-top: 5;
+    margin-left: 0;
+    margin-right: 5;
+}
+.panic {
+    background-color: #3AB8FF;
+}
+
+.butt {
+    margin: 5;
+    background-color: #4DD964; /* #adff2f */
+    border-width: 0;
+    color: white;
+    font-size: 18;
+}
+
+
+.mph {
+    color: red;
+    font-size: 9;
+    align-content: center;
+    text-align: center;
+    vertical-align: bottom;
+    margin-left: -250;
+    margin-bottom: -685;
+}
+
+
+.landAlert {
+    color: white;
+    font-size: 14;
+    margin-top: 0;
+    text-align: center;
+    vertical-align: bottom;
+    margin-bottom: 5;
+    margin-left: 0;
+    font-weight: bold;
+}
+
+
+
+
+.showPathIcon {
+    width: 16.23;
+    height: 24;
+    margin-top: 0;
+}
+.cleanPathIcon {
+    height: 28;
+    margin-right: 20;
+}
+
+
+
+
+
+.settingsIcon {
+    height: 28;
+    margin-right: 20;
+}
+.dashIcon {
+    height: 28;
+    margin-left: 20;
+}
+.flightsIcon {
+    height: 22;
+}
+
+
+.activePilotsIcon {
+    width: 26;
+    height: 26;
+    margin-right: 10;
+    margin-bottom: 5;
+}
+
+.ppgIcon {
+    margin-bottom: 0;
+    height: 24;
+}
+
+
+.headingIcon {
+    margin-bottom: -10;
+    width: 12;
+    height: 12;
+    margin-left: 10;
+}
+.headingCompassIcon {
+    height: 18;
+    margin-bottom: -80;
+    margin-left: 80;
+}
+
+.compassBack {
+    margin-top: 60;
+    height: 36;
+}
+
+.shareRoute {
+    margin-top: 0;
+    margin-left: 5;
+    width: 28;
+    align-content: left;
+    align-items: left;
+    align-self: left;
+}
+
+.speedGraph { 
+    margin-top: 55;
+    margin-left: 10;
+    width: 130;
+}
+
+.altGraph {
+    margin-top: -5;
+    margin-right: 10;
+    height: 40;
+}
+
+.originIcon {
+    width: 12;
+    height: 12;
+    align-content: left;
+    align-items: left;
+    align-self: left;
+    margin-bottom: 0;
+    margin-left: 10;
+}
+.originText {
+    color: #3AB8FF;
+    color: #FFFFFF;
+    font-size: 16;
+    margin-left: 5;
+    margin-bottom: 0;
+    height:20;
+    margin-top: 0;
+    align-self: baseline;
+}
+
+.headingIcon {
+    width: 12;
+    height: 12;
+    align-content: left;
+    align-items: left;
+    align-self: left;
+    margin-bottom: 0;
+    margin-left: 20;
+}
+.headingText {
+    color: #ffffff;
+    font-size: 16;
+    margin-left: 5;
+    margin-bottom: 0;
+    height:20;
+    margin-top: 0;
+    align-self: baseline;
+}
+
+.trackDistIcon {
+    width: 12;
+    height: 12;
+    align-content: left;
+    align-items: left;
+    align-self: left;
+    margin-bottom: 0;
+    margin-left: 10;
+}
+.trackDistText {
+    color: #FFFFFF;
+    font-size: 16;
+    margin-left: 5;
+    margin-bottom: -15;
+    align-self: baseline;
+    width: 18%;
+    height: 40;
+}
+.trackSpeedIcon {
+    width: 12;
+    height: 12;
+    align-content: left;
+    align-items: left;
+    align-self: left;
+    margin-bottom: 0;
+    margin-left: 20;
+}
+.trackSpeedText {
+    color: #ffffff;
+    font-size: 16;
+    margin-left: 5;
+    margin-bottom: -15;
+    align-self: baseline;
+    width: 18%;
+    height: 40;
+}
+.trackAltIcon {
+    width: 12;
+    height: 12;
+    align-content: left;
+    align-items: left;
+    align-self: left;
+    margin-bottom: 0;
+    margin-left: 20;
+}
+.trackAltText {
+    color: #ffffff;
+    font-size: 16;
+    margin-left: 5;
+    margin-bottom: -15;
+    align-self: baseline;
+    width: 18%;
+    height: 40;
+}
+.trackPilotIcon {
+    width: 20;
+    align-content: left;
+    align-items: left;
+    align-self: left;
+    margin-bottom: 0;
+    margin-left: 7;
+}
+.trackPilotText {
+    color: #FFFFFF;
+    font-size: 24;
+    margin-left: 5;
+    margin-top: -30;
+    font-weight: 600;
+    height: 80;
+    width: 100%;
+}
+.trackTrackingText {
+    margin-top: 48;
+    margin-left: 10;
+    color: #95989A;
+    font-size: 10;
+    height: 30;
+}
+.startButton {
+    width: 40;
+    margin-right: 10;
+}
+.routePlanning {
+    margin-top: 0;
+    margin-left: 10;
+    color: #95989A;
+    font-size: 10;
+    height:20;
+}
+.uploadRoute {
+    width: 20;
+    margin-left: 10;
+    margin-top: 5;
+}
+.downloadRoute {
+    width: 20;
+    margin-right: -60;
+    margin-top: 5;
+    align-self: center;
+}
+.deleteRoute {
+    width: 28;
+    margin-right: 10;
+    margin-top: 5;
+}
+
+.routeTag {
+    color: lightgray;
+    font-size: 10;
+    margin-right: 55;
+    margin-bottom: 0;
+    align-content: right;
+    text-align: right;
+    align-self: baseline;
+}
+.routeDist {
+    color: white;
+    font-size: 50;
+    margin-right: 60;
+    margin-top: -20;
+    text-align: right;
+    font-weight: 600;
+    height: 100;
+}
+
+.actPilots{
+    color: white;
+    font-size: 20;
+    text-align: left;
+    font-weight: 600;
+    padding: 5 0 5 10;
+}
+
+
+.snapshotIcon {
+    height: 28;
+}
+
+.engineOutIcon {
+    height: 24;
+}
+.windButIcon {
+    height: 26;
+}
+.stopIcon {
+    height: 26;
+    margin-right: 15;
+}
+.backIcon {
+    height: 24;
+    margin-left: 15;
+}
+
+.attitude {
+    height: 87;
+    width: 174;
+}
+.attitudeBack {
+    height: 106;
+    width: 99;
+}
+
+.cameraStatus {
+    width: 40;
+    height: 40;
+    background-size: cover;
+    display: block;
+    border-radius: 20;
+    -webkit-border-radius: 20;
+    -moz-border-radius: 20;
+    border-color: #1F272A;
+    border-width: 3;
+    animation-name: opacity;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+@keyframes opacity {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+.cameraStatusOFF {
+    width: 40;
+    height: 40;
+    background-size: cover;
+    display: block;
+    border-radius: 20;
+    -webkit-border-radius: 20;
+    -moz-border-radius: 20;
+    border-color: #1F272A;
+    border-width: 3;
+}
+.cameraControl {
+    height: 36;
+    margin-right: 15;
+    margin-bottom: 15;
+}

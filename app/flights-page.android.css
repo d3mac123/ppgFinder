@@ -1,0 +1,104 @@
+.settingsIcon {
+    height: 28;
+    margin-right: 20;
+}
+.dashIcon {
+    height: 28;
+    margin-left: 20;
+}
+.flightsIcon {
+    height: 22;
+}
+
+.list-group-item-heading {
+    color: #30BCFF;
+    font-size: 18;
+    padding-top: 15;
+    padding-left: 10;
+    padding-bottom: 15;
+    font-weight: bold;
+}
+.place {
+    color: lightgray;
+    font-size: 14;
+    padding-left: 10;
+    font-weight: 500;
+    margin-top: -10;
+    margin-bottom: 10;
+}
+
+
+
+.hTime {
+    color: gray;
+    font-size: 14;
+    text-align: right;
+    margin-right: 0;
+    margin-top: 20;
+}
+.mphTime {
+    color: gray;
+    font-size: 14;
+    text-align: right;
+    margin-right:5;
+    margin-top: 20;
+
+}
+
+.stackRight {
+    horizontal-align: right;
+    margin-right:5;
+}
+
+.delete-btn{
+    background-color: #F44336;
+    color: white;
+    font-size: 16;
+    height: 40;
+}
+
+.rating {
+    width: 16;
+    height: 16;
+    margin-bottom: 5;
+    margin-top: -15;
+    margin-right: 25;
+}
+
+.camera {  /*images for snap and buddies */
+    height: 12;
+    margin-top: -20;
+    margin-bottom: 5;
+    margin-top: -15;
+    margin-right: 0;
+}
+.snap { /*text for snap and buddies */
+    color: lightgray;
+    font-size: 14;
+    font-weight: 500;
+    margin-top: -10;
+    margin-bottom: 10;
+    margin-right: 25;
+}
+
+.flightDistance {
+    color: white;
+    font-size: 18;
+    text-align: right;
+    margin-right:17;
+    margin-top: 15;
+}
+.flightTime {
+    color: white;
+    font-size: 18;
+    text-align: right;
+    margin-right:10;
+    margin-top: 15;
+}
+.flightSpeed {
+    color: white;
+    font-size: 18;
+    text-align: right;
+    margin-right:34;
+    margin-top: 15;
+}

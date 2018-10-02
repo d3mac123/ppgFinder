@@ -1,0 +1,75 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd"  xmlns:lv="nativescript-ui-listview" class="page" actionBarHidden="false" loaded="pageLoaded" xmlns:x="nativescript-statusbar" backgroundSpanUnderStatusBar="true" backgroundColor="#182126">
+    <Page.actionBar>
+        <ActionBar title="{{ L('flightsTitle') }}" icon="" class="action-bar" backgroundColor="#2b3438" />
+    </Page.actionBar>
+    <!-- 
+                            <lv:RadListView id="listview" class="list-group" backgroundColor="#172126" items="{{ items }}" itemTap="listViewItemTap" swipeActions="true" 
+                                row="1" 
+                                selectionBehavior="None" 
+                                itemSwipeProgressEnded="onSwipeCellFinished"
+                                itemSwipeProgressStarted="onSwipeCellStarted" 
+                                itemSwipeProgressChanged="onCellSwiping"
+                                itemLoading="onItemLoading"
+                             >
+                             <lv:RadListView.itemSwipeTemplate>
+                                    <GridLayout columns="*, auto">
+                                        <StackLayout id="delete-view" col="1" style="background-color: #F44336;" tap="onRightSwipeClick"  paddingLeft="24" paddingRight="24" orientation="horizontal">
+                                            <Label text="Del"  class="delete-btn" verticalAlignment="center" horizontalAlignment="center" />
+                                        </StackLayout>
+                                    </GridLayout> 
+                                </lv:RadListView.itemSwipeTemplate>
+    -->
+     <GridLayout columns="*" rows="*,1,55" style.backgroundColor="#182126" id="alertGrid">   
+        <ContentView row="0"> 
+            <lv:RadListView id="listview" class="list-group" backgroundColor="#172126" items="{{ items }}" swipeActions="false" itemTap="listViewItemTap"
+                row="1" 
+                selectionBehavior="None"
+                multipleSelection="false" 
+                itemLoading="onItemLoading"
+                itemSelected="onItemSelected"
+                pullToRefresh="true" 
+                pullToRefreshInitiated="onPullToRefreshInitiated"
+                >
+                <lv:RadListView.pullToRefreshStyle>
+                    <lv:PullToRefreshStyle indicatorColor="#30BCFF" indicatorBackgroundColor="#FFFFFF"/>
+                </lv:RadListView.pullToRefreshStyle>
+                <lv:RadListView.listViewLayout>
+                    <lv:ListViewLinearLayout scrollDirection="Vertical"/>
+                </lv:RadListView.listViewLayout>
+                <lv:RadListView.itemTemplate>
+                    <GridLayout columns="*2,*,*,*" rows="*,*" backgroundColor="#172126">
+                        <Label text="{{ flightName }}" col="0" class="list-group-item-heading" />
+                        <Label text="{{ flightPlace }}" col="0" row="1" class="place" />
+                        
+                        <Label text="{{ flightTime }}" textWrap="true"  col="1" row="0" class="flightTime"  horizontalAlignment="right" />
+                        <Label text="h" textWrap="true"  col="1" row="0" class="hTime"  horizontalAlignment="right" />
+
+                        <Label text="{{snaps}}" textWrap="true"  class="snap" horizontalAlignment="right"  col="1" row="1" />
+                        <Image src="res://ic_camera" class="camera" horizontalAlignment="right" col="1" row="1"  />
+
+                        <Label text="{{ flightDistance }}" textWrap="true" class="flightDistance" horizontalAlignment="right" col="2" row="0" />
+                        <Label text="{{mi}}" textWrap="true"  class="hTime" horizontalAlignment="right" col="2" row="0"  />
+
+                        <Label text="{{buddies}}" textWrap="true"  class="snap" horizontalAlignment="right" col="2" row="1"  />
+                        <Image src="res://ic_buddies" class="camera" horizontalAlignment="right" col="2" row="1"  />
+                        
+                        <Label text="{{ flightMaxSpeed }}" textWrap="true" class="flightSpeed"  horizontalAlignment="right" col="3" row="0" />
+                        <Label text="{{ mph }}" textWrap="true" class="mphTime" horizontalAlignment="right" col="3" row="0"  />
+                        
+                        <Image src="{{ flightRating }}" col="3" row="1" class="rating" horizontalAlignment="right" />
+
+                    </GridLayout>
+                </lv:RadListView.itemTemplate>
+                
+            </lv:RadListView>   
+        </ContentView>
+        <ContentView row="1" backgroundColor="#3AB8FF" />
+        <ContentView row="2">
+            <GridLayout columns="*,*,*" rows="*" class="bottomBar" backgroundColor="#1F272A"> 
+                <Image src="res://ic_dashboard" row="0" col="0" class="dashIcon" id="dashIcon" tap="showDash"  horizontalAlignment="left"></Image> 
+                <Image src="res://ic_flights_on" row="0" col="1" class="flightsIcon" id="flightsIcon"></Image>
+                <Image src="res://ic_settings" row="0" col="2" tap="showSettings" class="settingsIcon" id="settingsIcon" horizontalAlignment="right" ></Image>
+            </GridLayout>
+        </ContentView>
+    </GridLayout>
+</Page>

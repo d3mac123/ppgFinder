@@ -1,0 +1,113 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" class="page" backgroundColor="#182126">
+    <!--
+    The ActionBar is the NativeScript common abstraction over the Android ActionBar and iOS NavigationBar.
+    http://docs.nativescript.org/ui/action-bar
+    -->
+    <Page.actionBar>
+        <ActionBar title="{{ L('settingsTitle') }}" icon="" class="action-bar" backgroundColor="#2b3438">
+        </ActionBar>
+    </Page.actionBar>
+
+    <GridLayout rows="*,1, 55">
+        <ScrollView orientation="vertical">
+        
+        <ContentView row="0">
+            <StackLayout class="loginButtons">
+                <Image src="{{ fbPhoto }}" class="photo" tap="{{ onTapPhoto }}" id="fbPhotoHolder"></Image>
+                <Image src="{{ fbIcon }}" class="myIcon" id="fbIconHolder"></Image>
+                <!-- <Label text="{{ L('changePicture') }}" class="regText" id="loading"/> -->
+                <Label text="" class="regText" id="loading"/>
+                <Label text="{{ L('helloPilot', hello) + ' ('+fbID+')' }}" class="nameText" id="helloName"/>
+                <Label text="{{ L('nickname') }}" class="regText" id="loading"/>
+                <TextField id="nickname" text="{{ nickname }}" hint="{{ L('hintNick') }}" keyboardType="email" autocorrect="false" autocapitalizationType="none" class="txtNick" />
+                
+                <Label text="{{ L('glider') }}" class="gliderText" id="gTest"/>                    
+                <WrapLayout orientation="horizontal" class="gliderColor">
+                     <Image src="res://mk_red_blue" tap="{{ onTapIcon }}"  class="buttonColor" id="mk_red_blue"/>
+                     <Image src="res://mk_red_black" tap="{{ onTapIcon }}"  class="buttonColor" id="mk_red_black" />
+                     <Image src="res://mk_red_green" tap="{{ onTapIcon }}"  class="buttonColor" id="mk_red_green"/>
+                     <Image src="res://mk_lightskyblue_lightgreen" tap="{{ onTapIcon }}"  class="buttonColor" id="mk_lightskyblue_lightgreen" />
+                     <Image src="res://mk_lightgreen_lightskyblue" tap="{{ onTapIcon }}"  class="buttonColor" id="mk_lightgreen_lightskyblue" />
+                     <Image src="res://mk_lightgreen_orange" tap="{{ onTapIcon }}"  class="buttonColor" id="mk_lightgreen_orange" />
+                     <Image src="res://mk_blue_red" tap="{{ onTapIcon }}"  class="buttonColor" id="mk_blue_red" />
+                     <Image src="res://mk_blue_blue" tap="{{ onTapIcon }}"  class="buttonColor" id="mk_blue_blue"/>
+                     <Image src="res://mk_blue_pink" tap="{{ onTapIcon }}"  class="buttonColor" id="mk_blue_pink"/>
+                     <Image src="res://mk_yellow_black" tap="{{ onTapIcon }}"  class="buttonColor"  id="mk_yellow_black"/>
+                     <Image src="res://mk_yellow_red" tap="{{ onTapIcon }}"  class="buttonColor" id="mk_yellow_red"/>
+                     <Image src="res://mk_yellow_green" tap="{{ onTapIcon }}"  class="buttonColor"  id="mk_yellow_green"/>
+                     <Image src="res://mk_white_yellow" tap="{{ onTapIcon }}"  class="buttonColor" id="mk_white_yellow"/>
+                     <Image src="res://mk_white_green" tap="{{ onTapIcon }}"  class="buttonColor" id="mk_white_green"/>
+                     <Image src="res://mk_white_red" tap="{{ onTapIcon }}"  class="buttonColor" id="mk_white_red"/>
+                     <Image src="res://mk_white_blue" tap="{{ onTapIcon }}"  class="buttonColor" id="mk_white_blue"/>                   
+                     <Image src="res://mk_green_red" tap="{{ onTapIcon }}"  class="buttonColor"  id="mk_green_red"/>
+                     <Image src="res://mk_green_white" tap="{{ onTapIcon }}"  class="buttonColor" id="mk_green_white"/>
+                     <Image src="res://mk_gray_lightgreen" tap="{{ onTapIcon }}"  class="buttonColor"  id="mk_gray_lightgreen"/>
+                     <Image src="res://mk_gray_red" tap="{{ onTapIcon }}"  class="buttonColor" id="mk_gray_red"/>
+                     <Image src="res://mk_orange_red" tap="{{ onTapIcon }}"  class="buttonColor"  id="mk_orange_red"/>
+                     <Image src="res://mk_orange_yellow" tap="{{ onTapIcon }}"  class="buttonColor" id="mk_orange_yellow"/>
+                     <Image src="res://mk_orange_white" tap="{{ onTapIcon }}"  class="buttonColor"  id="mk_orange_white"/>
+                     <Image src="res://mk_orange_black" tap="{{ onTapIcon }}"  class="buttonColor" id="mk_orange_black"/>
+                     <Image src="res://mk_purple_yellow" tap="{{ onTapIcon }}"  class="buttonColor"  id="mk_purple_yellow"/>
+                     <Image src="res://mk_purple_green" tap="{{ onTapIcon }}"  class="buttonColor"  id="mk_purple_green"/>
+                </WrapLayout>
+                <StackLayout class="switch" orientation="horizontal" horizontalAlignment="center" >
+                        <Label text="{{ L('metric') }}" class="sMetric"/>
+                        <Switch checked="{{ switch }}" id="switchID" tap="{{ onTapSwitch }}" class="sSwitch"/>
+                        <Label text=" {{ L('imperial') }}"  class="sImp"/>
+                </StackLayout>
+                <StackLayout class="switch" orientation="horizontal" horizontalAlignment="center" >
+                        <Label text="{{ L('map') }}" class="sMap"/>
+                </StackLayout>
+                <StackLayout class="switch" orientation="horizontal" horizontalAlignment="center" >
+                        <SegmentedBar id="mapSelected" selectedBackgroundColor="#3AB8FF" selectedIndexChanged="{{onTapMap}}" selectedIndex="0" class="sMapa">
+                            <SegmentedBar.items>
+                                <SegmentedBarItem title="Street" />
+                                <SegmentedBarItem title="Light" />
+                                <SegmentedBarItem title="Dark" />
+                                <SegmentedBarItem title="Satellite" />
+                                <SegmentedBarItem title="Hybrid" />
+                            </SegmentedBar.items>
+                        </SegmentedBar>
+                </StackLayout>
+                <StackLayout class="switch" orientation="horizontal" horizontalAlignment="center" >
+                        <Label text="{{ L('autoZoom') }}" class="sMap"/>
+                        <Switch checked="{{ switchZoom }}" id="switchZoomID" tap="{{ onTapZoom }}" class="sSwitch"/>
+                </StackLayout>
+                <StackLayout class="switch" orientation="horizontal" horizontalAlignment="center" >
+                        <Label text="{{ L('goPro_control') }}" class="sMap"/>
+                        <Switch checked="{{ switchCamera }}" id="switchCamera" tap="{{ onTapGoPro }}" class="sSwitch"/>
+                </StackLayout>
+                <StackLayout class="switch" orientation="horizontal" horizontalAlignment="center" >
+                        <Label text="{{ L('altAlert') }}" class="sMap"/>
+                        <Switch checked="{{ switchColor }}" id="switchColor" tap="{{ onTapSwitchColor }}" class="sSwitch"/>
+                </StackLayout>
+                <StackLayout class="switch" orientation="horizontal" horizontalAlignment="center" >
+                        <Label text="{{ L('voiceAlert') }}" text="Voice Alert: " class="sMap"/>
+                        <Switch checked="{{ switchVoice }}" id="switchVoice" tap="{{ onTapVoice }}" class="sSwitch"/>
+                </StackLayout>
+                <StackLayout class="updateButton">
+                    <Button text="{{ L('update') }}" tap="{{ onUpdate }}" class="btn btn-primary btn-active"/>
+                  <!--  <Button text="Dashboard" tap="{{ onDash }}" class="btn btn-primary btn-active"/> -->
+                   <Button text="{{ L('logout') }}" text="LOGOUT" tap="{{ onReauth }}" class="btn btn-primary btn-active butEmail"/> 
+                </StackLayout>
+
+                <StackLayout orientation="horizontal" horizontalAlignment="center" >
+                        <Label text="{{ L('version', version) }}" textWrap="true" class="version" id="version" horizontalAlignment="center" />
+                </StackLayout>
+            </StackLayout>
+
+        </ContentView>
+
+        </ScrollView>
+        <ContentView row="1" backgroundColor="#3AB8FF">
+        
+        </ContentView>
+        <ContentView row="2">
+            <GridLayout columns="*,*,*" rows="*" class="bottomBar" backgroundColor="#1F272A"> 
+                <Image src="res://ic_dashboard" row="0" col="0" tap="{{ onDash }}" class="dashIcon" horizontalAlignment="left"></Image> 
+                <Image src="res://ic_flights" row="0" col="1" tap="{{ onFlights }}" class="flightsIcon"></Image>
+                <Image src="res://ic_settings_on" row="0" col="2" class="settingsIcon" horizontalAlignment="right"></Image>
+            </GridLayout>
+        </ContentView>
+    </GridLayout>
+</Page>

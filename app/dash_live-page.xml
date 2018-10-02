@@ -1,0 +1,197 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd"  xmlns:sd="nativescript-ui-sidedrawer" class="page" actionBarHidden="true" xmlns:map="nativescript-mapbox" loaded="pageLoaded" xmlns:x="nativescript-statusbar" backgroundSpanUnderStatusBar="true" backgroundColor="#182126">
+    <Page.actionBar>
+        <ActionBar title="Dashboard" backgroundColor="#182126">
+            <android>
+                <NavigationButton icon="res://ic_menu" tap="showSlideout" ios.position="left"/>
+            </android>
+            <ios>
+                <ActionItem icon="res://ic_menu" ios.position="left" tap="showSideDrawer" />
+            </ios>
+        </ActionBar>
+    </Page.actionBar>
+
+
+
+      <x:StatusBar ios:barStyle="black" android:barStyle="#182126" />
+
+    <sd:RadSideDrawer id="sideDrawer" drawerLocation="left">
+        <!-- side drawer content -->        
+        <sd:RadSideDrawer.drawerContent>
+            <GridLayout rows="*" class="sidedrawer-left">
+                <GridLayout rows="auto,*" class="sidedrawer-content">
+                        <Label text="" id="actPilots" row="0" class="actPilots" text="Active Pilots"/>
+                        <list-view id="pilotList" items="{{ activeList }}" itemTap="listViewItemTap" row="1">
+                            <list-view.itemTemplate>
+                                <GridLayout columns="*,*2,auto">
+                                    <Image src="{{ listPhoto }}" col="0" class="listPhoto"  horizontalAlignment="left"/>
+                                    <Image src="{{ listIcon }}" col="0" class="listIcon"  horizontalAlignment="left"/>
+                                    <Label text="{{ isMe + listNick }}" col="1"  class="listNick"  horizontalAlignment="left"/>
+                                    <Label text="{{ listDistance + listMiles + distHeading}}" col="2" class="listDistance"  horizontalAlignment="right"/>
+                                    <Label text="{{ listAltitude }}" col="1"  class="listAltitude" />
+                                    <Label text="{{ listHeading }}" col="1"  class="listHeading"  horizontalAlignment="left"/>
+                                    <Label text="{{ listSpeed }}" col="2"  class="listSpeed" />                              
+                                </GridLayout>
+                            </list-view.itemTemplate>
+                        </list-view>
+                </GridLayout>
+            </GridLayout>
+        </sd:RadSideDrawer.drawerContent>
+
+
+        <!-- The main content -->
+        <sd:RadSideDrawer.mainContent>
+
+                <!-- <GridLayout columns="*" rows="60,*,50,32" style.backgroundColor="#182126">  -->
+                <GridLayout columns="*" rows="*,10,125,1,55" style.backgroundColor="#182126">   
+
+
+                        <ContentView row="0" class="map"> <!--> height="240" width="480"> -->
+                            <map:MapboxView
+                                latitude="25.501373"
+                                longitude="-80.548207"
+                                zoomLevel="13"
+                                mapStyle="emerald"
+                                hideAttribution="true"
+                                showUserLocation="true"
+                                hideCompass="false"
+                                disableTilt="true"
+                                disableRotation="false"
+                                accessToken="pk.eyJ1IjoiZDNtYWMxMjMiLCJhIjoiY2oyZzRjazFwMDd2MzMyczZtMzg1Njl5eSJ9.w2K2EUOZzxtCqqAARGBbZA"
+                                mapReady="onMapReady"  >
+                            </map:MapboxView>
+                        </ContentView>
+                        <!-- ATTITUDE INDICATOR
+                        <ContentView row="0" class="attitudeBack" >
+                            <Image src="res://ic_attitude_back" id="attitudeBack" horizontalAlignment="center" verticalAlignment="center"/>
+                        </ContentView>
+                        <ContentView row="0" class="attitude" >
+                            <Image src="res://ic_attitude" id="attitudeIcon" horizontalAlignment="center" verticalAlignment="center"/>
+                        </ContentView>
+                        -->
+                        <!-- CAMERA ICON -->
+                        <ContentView row="0" class="cameraControl"  horizontalAlignment="right" verticalAlignment="bottom" >
+                            <Image src="res://gopro_off" id="cameraControl" tap="onGoPro"/>
+                        </ContentView>
+
+                        <ContentView row="1" backgroundColor="#3AB8FF" id="alertGrid" />
+                     
+                        <ContentView row="2">
+                            <GridLayout columns="*" rows="2*,*,*"> 
+
+                                    <GridLayout columns="2*,*,2*" rows="*">  
+                                        <!-- GROUND VIEW -->
+                                            <Label text="{{ routePlanning }}" row="0" col="0" id="routePlanning"  class="routePlanning" text="Route Planning"/> 
+                                            <Image src="res://ic_button_upload_route" row="0" col="0" tap="onUploadRoute" class="uploadRoute" id="uploadRoute" horizontalAlignment="left"></Image>
+                                            <Image src="res://ic_button_download_route" row="0" col="0" tap="onDownloadRoute" class="downloadRoute" id="downloadRoute" ></Image>
+                                            <Image src="res://ic_button_delete_route" row="0" col="1" tap="onDeleteRoute" class="deleteRoute" id="deleteRoute"></Image>
+                                            <Label text="" row="0" col="2"  id="routeTagHolder" class="routeTag"/> 
+                                            <Label text="{{ routeDist }}" row="0" col="2" id="routeDistHolder"  class="routeDist" text="0"/> 
+                                            <Image src="res://ic_button_start" row="0" col="2"  id="butStart" class="startButton" horizontalAlignment="right" tap="onStart"/>
+                                            <Label text="{{ trackTracking }}" row="0" col="0" id="trackTracking"  class="trackTrackingText" text="Tracking"/> 
+
+                                        <!-- FLYING VIEW -->
+                                            <Image src="res://ic_speed" row="0" col="0"  id="speedIcon" class="speedIcon" horizontalAlignment="left" tap="toggleDrawer"/>
+                                            <Label text="{{ mySpeed }}" row="0" col="0"  id="mySpeedHolder"  class="speedText" tap="toggleDrawer" />
+                                            <Label text="{{ myMaxSpeed }}" row="0" col="0"  id="myMaxSpeedHolder" class="maxSpeedText" />
+                                            <Label text="{{ mySpeedTag }}" row="0" col="0"  id="mySpeedTag" class="speedTag" />
+                                            <Image src="res://ic_speed0" row="0" col="0"  id="speedGraph" class="speedGraph" horizontalAlignment="left" tap="toggleDrawer"/>
+                                            
+                                            <Image src="res://ic_hide_route" row="0" col="1" tap="onShowRoute" class="showPathIcon" id="showPathIcon"></Image>
+
+                                            <Image src="res://ic_altitude" row="0" col="2" id="altIcon" class="altIcon"></Image>
+                                            <Label text="{{ myAltitudeTag }}" row="0" col="2"  id="myAltitudeTag" class="altTag" tap="toggleDrawer"/> 
+                                            <Label text="{{ myAltitude }}" row="0" col="2" id="myAltitudeHolder"  class="altText" tap="toggleDrawer"/> 
+                                            <Image src="res://ic_alt0" row="0" col="2" id="altGraph" class="altGraph" horizontalAlignment="right" tap="toggleDrawer"/>
+                                    </GridLayout>
+
+
+                                <ContentView row="1">
+                                    <GridLayout columns="*" rows="*">
+                                        <StackLayout orientation="horizontal">
+                                            <Image src="" class="trackPilotIcon" id="trackPilotIcon" row="0" col="0" tap="toggleDrawer"></Image>
+                                            <Label text="" id="trackPilotText" class="trackPilotText" row="0" col="0"  tap="toggleDrawer"/>
+                                        </StackLayout>
+                                        <StackLayout orientation="horizontal" tap="toggleDrawer">
+                                            <Image src="res://ic_duration" class="durIcon" row="0" col="0" id="durIcon"  tap="toggleDrawer"></Image>
+                                            <Label text="{{ myDuration }}" id="myDurationHolder" class="durText" row="0" col="0"  tap="toggleDrawer"/>
+
+                                            <Image src="res://ic_distance" class="distIcon" id="distIcon" row="0" col="0"  tap="toggleDrawer"></Image>
+                                            <Label text="{{ myDistance }}" id="myDistanceHolder" class="distText" horizontalAlignment="left" row="0" col="0"  tap="toggleDrawer"/>
+                                                                              
+                                            <Image src="res://ic_wind" class="windIcon" id="windIcon" tap="onZeroWind" row="0" col="0"  tap="toggleDrawer"></Image>
+                                            <Label text="{{ myWind }}" id="myWindHolder" class="windText" horizontalAlignment="left" tap="onZeroWind" row="0" col="0"  tap="toggleDrawer"/>
+                                        </StackLayout>
+                                    </GridLayout>
+                                </ContentView>
+
+                                <ContentView row="2">
+                                    <GridLayout columns="*,auto" rows="*">
+                                        <StackLayout orientation="horizontal" col="0" >
+                                            <Image src="res://ic_distance" class="trackDistIcon" id="trackDistIcon" tap="toggleDrawer"></Image>
+                                            <Label text="{{ trackDistance }}" id="trackDistanceHolder" class="trackDistText" horizontalAlignment="left" text="0mi" tap="toggleDrawer"/>
+                                            <Image src="res://ic_speed" row="0" col="0"  id="trackSpeedIcon" class="trackSpeedIcon" horizontalAlignment="left" tap="toggleDrawer"/>
+                                            <Label text="{{ trackSpeed }}" id="trackHeadingHolder" class="trackSpeedText" horizontalAlignment="left" text="0mph" tap="toggleDrawer"/>
+                                            <Image src="res://ic_altitude" row="0" col="0"  id="trackAltIcon" class="trackAltIcon" horizontalAlignment="left" tap="toggleDrawer"/>
+                                            <Label text="{{ trackAltitude }}" id="trackAltHolder" class="trackAltText" horizontalAlignment="left" text="0ft"  tap="toggleDrawer"/>
+                                        </StackLayout>
+                                        <StackLayout orientation="horizontal" col="0" >
+                                            <Image src="res://ic_dash_origin" col="0" class="originIcon" id="originIcon" tap="toggleDrawer"></Image>
+                                            <Label text="{{ L('origin') }}" col="0" class="originText" id="originDistanceHolder" tap="toggleDrawer"/>
+                                            <Image src="res://ic_compass_new" class="headingIcon" id="headingIcon" tap="toggleDrawer"></Image>
+                                            <Label text="{{ myHeading }}" id="myHeadingHolder" class="headingText" horizontalAlignment="left" tap="toggleDrawer"/>
+                                        </StackLayout>
+                                        <StackLayout orientation="horizontal" col="1" >
+                                            <Label text="{{ totActive }}" col="1" id="totActiveHolder" class="totActive" text="0"  tap="toggleDrawer"/>
+                                            <!--<Image src="{{ fbIcon }}" col="1" class="activePilotsIcon" tap="toggleDrawer" id="fbIconHolder"> </Image>-->
+                                            <Image src="{{ fbIcon }}" col="1" class="activePilotsIcon" id="fbIconHolder" tap="toggleDrawer"> </Image>
+                                        </StackLayout>
+                                    </GridLayout>
+                                </ContentView>
+                            </GridLayout>
+                        </ContentView>
+
+                        <ContentView row="3" backgroundColor="#3AB8FF" id="divider2" />
+                        
+                        <ContentView row="4">
+                            <GridLayout columns="*,*,*,*,*" rows="*" class="bottomBar" backgroundColor="#1F272A"> 
+                                <Image src="res://ic_dash_on" row="0" col="0" class="dashIcon" id="dashIcon" horizontalAlignment="left"></Image> 
+                                <Image src="res://ic_flights" row="0" col="2" tap="showFlights" class="flightsIcon" id="flightsIcon"></Image>
+                                <Image src="res://ic_settings" row="0" col="4" tap="showSettings" class="settingsIcon" id="settingsIcon" horizontalAlignment="right"></Image>
+                                <Image src="res://ic_back_origin" row="0" col="0" tap="onBackOrigin" class="backIcon" id="backOriginIcon" horizontalAlignment="left"></Image> 
+                                <Image src="res://ic_weather_wind" row="0" col="1" tap="onWind" class="windButIcon" id="windButIcon" horizontalAlignment="center"></Image>
+                                <Image src="res://ic_engine_out" row="0" col="3" tap="onEngineOut" class="engineOutIcon" id="engineOutIcon" horizontalAlignment="center"></Image>
+                                <Image src="res://ic_snapshot" row="0" col="2" tap="onSnapshot" class="snapshotIcon" id="snapshotIcon" horizontalAlignment="center"></Image>
+                                <Image src="res://ic_button_stop" row="0" col="4" tap="onStop" class="stopIcon" id="butStop" horizontalAlignment="right"></Image>
+
+                                <!-- <Label src="" row="0" col="2" class="cameraStatus" id="cameraStatus" horizontalAlignment="center" tap="onSnapshot" /> -->
+                            </GridLayout>
+                        </ContentView>
+            <!--- 
+                      <ContentView row="2" tap="toggleDrawer">
+                            <GridLayout columns="3*,*,2*,2*" rows="*">  
+                                <Image src="res://ic_speed" col="0" class="speedIcon"></Image>
+                                <Label text="Origin" col="1"  class="originText"/>
+                                <Label text="{{ originHeading }}" col="1" id="originHeadingHolder" class="originHead"/>
+                                <Label text="{{ originTime }}" col="2" id="originTimeHolder" class="originDur" /> 
+                                <Label text="{{ originDistance }}" col="3" id="originDistanceHolder"  class="originDist"/> 
+                                
+                            </GridLayout>
+                        </ContentView>
+
+                        <ContentView row="3">
+                            <GridLayout columns="*,*4" rows="*"  class="bottomBar"> 
+                                <Image src="res://ic_settings_off" row="0" col="0" tap="onSettings"></Image> 
+                                <Image src="res://ic_dashboard" row="0" col="2"></Image>
+                            </GridLayout>
+                        </ContentView>
+
+                                                                <Image src="res://ic_compback" class="headingIcon" id="headingIcon"></Image>
+                                        <Label text="{{ myHeading }}" id="myHeadingHolder" class="headingText" horizontalAlignment="left" text="S"/>
+
+            -->
+                </GridLayout>
+
+            </sd:RadSideDrawer.mainContent>
+    </sd:RadSideDrawer>
+</Page>
+

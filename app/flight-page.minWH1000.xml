@@ -1,0 +1,285 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" xmlns:gv="nativescript-grid-view" navigatingTo="onNavigatingTo" class="page" xmlns:map="nativescript-mapbox" loaded="pageLoaded"  backgroundColor="#182126" xmlns:chart="nativescript-ui-chart">
+    <Page.actionBar>
+        <ActionBar title="{{ flightTitle }}" icon="" class="action-bar" backgroundColor="#2b3438" id="actionTitle">
+        </ActionBar>
+    </Page.actionBar>
+
+    <GridLayout rows="*,1, 55">
+        <ScrollView orientation="vertical">
+        
+        <ContentView row="0" id="printMe2">       
+            <StackLayout class="loginButtons" id="flightBackground" class="flightBackground">
+                <StackLayout id="printMe" class="flightBackground">
+                        <Label text="{{ flightPlace + ' '+ flightTime }}" class="flightTime" id="flightTime" horizontalAlignment="center"/>
+                        <GridLayout columns="*" rows="*">
+                            <StackLayout col="0" orientation="horizontal" horizontalAlignment="center">
+                                <Image src="res://ic_weather_unknow" class="weatherIcon" id="weatherIcon"/>
+                                <Label text="No Info" class="weatherText" id="weatherText"/>
+                                <Image src="res://ic_weather_wind" class="weatherWindIcon" id="weatherWindIcon"/>
+                                <Label text="No Info" class="weatherText" id="weatherWindText"/>
+                            </StackLayout>
+                        </GridLayout>
+                        <GridLayout columns="*,*,*" rows="*,*,*,*">
+                            <Label text="{{ L('duration') }}"  class="blueDur" horizontalAlignment="left" col="0" row="0" />
+                            <Label text="{{ flightDuration }}"  class="whiteFields" horizontalAlignment="left" col="0" row="1" id="flightDurationHolder"/>
+                            <Label text="{{ L('maxAltitude') }}"  class="blueDur" horizontalAlignment="right" col="2" row="0" />
+                            <Label text="{{ flightMaxAlt }}"  class="whiteFields2" horizontalAlignment="right" col="2" row="1"  id="flightMaxAltitudeHolder"/>
+                            <Label text="{{ L('distance') }}"  class="blueDur2" horizontalAlignment="left" col="0" row="2" />
+                            <Label text="{{ flightDistance }}"  class="whiteFields2" horizontalAlignment="left" col="0" row="3"  id="flightDistanceHolder" />
+                            <Label text="{{ L('avgSpeed') }}"  class="blueDur2" horizontalAlignment="center" col="1" row="2" />
+                            <Label text="{{ flightAvgSpeed }}"  class="whiteFields2" horizontalAlignment="center" col="1" row="3"  id="flightAvgSpeedHolder" />
+                            <Label text="{{ L('maxSpeed') }}"  class="blueDur2" horizontalAlignment="right" col="2" row="2" />
+                            <Label text="{{ flightMaxSpeed }}"  class="whiteFields2" horizontalAlignment="right" col="2" row="3"   id="flightMaxSpeedHolder"/> 
+                        </GridLayout>
+                        
+                        <StackLayout>
+                            <ContentView height="650" width="100%" tap="onShowMap">
+                            <!-- IMPORTANT: plugin version 3 uses :MapboxView, lower versions use :Mapbox -->
+                            <map:MapboxView
+                                accessToken="pk.eyJ1IjoiZDNtYWMxMjMiLCJhIjoiY2oyZzRjazFwMDd2MzMyczZtMzg1Njl5eSJ9.w2K2EUOZzxtCqqAARGBbZA"
+                                mapStyle="streets"
+                                latitude="26.127116"
+                                longitude="-80.165747"
+                                zoomLevel="3"
+                                showUserLocation="false"
+                                disableZoom="true"
+                                disableRotation="true"
+                                disableScroll="true"
+                                disableTilt="true"
+                                delay="5"
+                                mapReady="onMapReady">
+                            </map:MapboxView>
+                            </ContentView>
+                        </StackLayout>
+
+                        <StackLayout horizontalAlignment="center">
+                            <Label text="{{ L('shareImage', flightTitle) }}" textWrap="true" class="ppgFinder" id="ppgFinder"/>
+                        </StackLayout>
+                                   
+
+                        <StackLayout class="blueDur" orientation="horizontal" horizontalAlignment="center" >
+                                <Label text="{{ L('ratings') }}" class="sMap"/>
+                        </StackLayout>
+                        <StackLayout class="blueDur" orientation="horizontal" horizontalAlignment="center" >
+                            <Image src="res://ic_ratingbad_gray" tap="tapBad" class="rating" id="bad" />
+                            <Image src="res://ic_ratingok_gray" tap="tapOK" class="rating" id="ok" />
+                            <Image src="res://ic_ratinggood" tap="tapGood" class="rating" id="good" />
+                            <Image src="res://ic_ratinggreat_gray" tap="tapGreat" class="rating" id="great" />
+                        </StackLayout>
+
+                </StackLayout>
+ 
+                <!-- Flew with Me Part -->
+                <Label text="{{ L('flightBuddies') }}" class="flewMe" id="flewMe" horizontalAlignment="left"/>
+                <GridLayout class="flewList" id="flewBuddies">
+                    <gv:GridView items="{{ buddyList }}" colWidth="50%" padding="5" itemTap="gridViewItemTap" itemLoading="gridViewItemLoading" loadMoreItems="gridViewLoadMoreItems">
+                    <gv:GridView.itemTemplate>
+                        <GridLayout columns="50,*" >
+                            <Image src="{{ buddyPhoto }}" class="listPhoto" col="0" horizontalAlignment="left" verticalAlignment="center"/>
+                            <Image src="{{ buddyIcon }}" class="listIcon" col="0"  horizontalAlignment="left" verticalAlignment="center"/>
+                            <Label text="{{ buddyNick }}" class="listNick" col="1"  horizontalAlignment="left" verticalAlignment="center"/>                           
+                        </GridLayout>
+                    </gv:GridView.itemTemplate>
+                    </gv:GridView>
+                </GridLayout>
+               <!--
+                <list-view id="buddyList" items="{{ buddyList }}" style="background-color: #182126; separator-color: #182126; height:100">
+                    <list-view.itemTemplate>
+                        <GridLayout columns="50,*">
+                            <Image src="{{ buddyPhoto }}" class="listPhoto" col="0" horizontalAlignment="left"/>
+                            <Image src="{{ buddyIcon }}" class="listIcon" col="0"  horizontalAlignment="left"/>
+                            <Label text="{{ buddyNick }}" class="listNick" col="1"  horizontalAlignment="left"/>                           
+                        </GridLayout>
+                    </list-view.itemTemplate>
+                </list-view>
+                -->
+                <!-- CHART Part -->
+                <ios>
+                    <StackLayout  horizontalAlignment="left">
+                        <Label text="{{ L('graphTitle') }}" class="graph" id="graphTitle" style="marging-top: 10; margin-bottom: 10"/>
+                    </StackLayout>
+                    <ContentView height="170" width="100%" style="marging-top: -50">
+                        <chart:RadCartesianChart id="cartesianChart" backgroundColor="#182126">
+
+                            <chart:RadCartesianChart.grid>
+                                    <chart:RadCartesianChartGrid
+                                        horizontalLinesVisible="true"
+                                        verticalLinesVisible="false"
+                                        horizontalStripLinesVisible="true"
+                                        verticalStripLinesVisible="false"
+                                        verticalStrokeColor="#804d0026"
+                                        horizontalStrokeColor="#3E4649"
+                                        horizontalStrokeWidth="1"
+                                        verticalStrokeWidth="0"      
+
+                                        />
+                            </chart:RadCartesianChart.grid>
+
+                            <chart:RadCartesianChart.series>
+                                <chart:AreaSeries legendTitle="Speed" showLabels="false" seriesName="Speed" items="{{ categorySpeed }}" categoryProperty="date" valueProperty="speed" >
+                                    <chart:RadCartesianChart.verticalAxis>
+                                        <chart:LinearAxis horizontalLocation="Right" labelSize="10" lineColor="#182126" lineThickness="0" labelTextColor="#F57426" margin="5"/>
+                                    </chart:RadCartesianChart.verticalAxis>
+                                    <chart:RadCartesianChart.horizontalAxis>
+                                        <chart:CategoricalAxis majorTickInterval="{{tickInterval}}" horizontalLocation="Left" labelSize="10" labelTextColor="#FFFFFF" margin="5"/>
+                                    </chart:RadCartesianChart.horizontalAxis>
+                                </chart:AreaSeries>
+                                <chart:AreaSeries legendTitle="Altitude" showLabels="false" seriesName="Altitude" items="{{ categorySpeed }}" categoryProperty="date" valueProperty="altitude">
+                                    <chart:RadCartesianChart.verticalAxis>
+                                        <chart:LinearAxis horizontalLocation="Left" labelSize="10" lineColor="#182126" lineThickness="0" labelTextColor="#00EAFE" margin="5"/>
+                                    </chart:RadCartesianChart.verticalAxis>
+                                </chart:AreaSeries>
+                            </chart:RadCartesianChart.series>    
+
+                            <chart:RadCartesianChart.palettes>
+                                <chart:Palette seriesName="Speed">
+                                    <chart:Palette.entries>
+                                        <chart:PaletteEntry fillColor="#329D4D1C" strokeColor="#F57426"/>
+                                    </chart:Palette.entries>
+                                </chart:Palette>
+                                <chart:Palette seriesName="Altitude">
+                                    <chart:Palette.entries>
+                                        <chart:PaletteEntry fillColor="#320B8D9A" strokeColor="#00EAFE"/>
+                                    </chart:Palette.entries>
+                                </chart:Palette>
+                            </chart:RadCartesianChart.palettes>
+                        </chart:RadCartesianChart>
+                    </ContentView>
+                </ios>
+
+                <android>
+                    <StackLayout  horizontalAlignment="left">
+                        <Label text="{{ L('graphTitle') }}" class="blueDur2" id="graphTitle" style="marging-top: 10; margin-bottom: 10"/>
+                    </StackLayout>
+                    <ContentView height="170" width="100%" style="marging-top: 10">
+                        <chart:RadCartesianChart id="cartesianChart" backgroundColor="#182126">
+
+                            <chart:RadCartesianChart.grid>
+                                    <chart:RadCartesianChartGrid
+                                        horizontalLinesVisible="false"
+                                        verticalLinesVisible="false"
+                                        horizontalStripLinesVisible="true"
+                                        verticalStripLinesVisible="false"
+                                        verticalStrokeColor="#804d0026"
+                                        horizontalStrokeColor="#182126"
+                                        horizontalStrokeWidth="1"
+                                        verticalStrokeWidth="1"      
+
+                                        />
+                            </chart:RadCartesianChart.grid>
+
+                            <chart:RadCartesianChart.series>
+                                <chart:AreaSeries legendTitle="Speed" showLabels="false" seriesName="Speed" items="{{ categorySpeed }}" categoryProperty="date" valueProperty="speed" >
+                                    <chart:RadCartesianChart.verticalAxis>
+                                        <chart:LinearAxis horizontalLocation="Right" labelSize="10" lineColor="#182126" lineThickness="1" labelTextColor="#F57426" margin="5" labelFormat="%.0f"/>
+                                    </chart:RadCartesianChart.verticalAxis>
+                                    <chart:RadCartesianChart.horizontalAxis>
+                                        <chart:CategoricalAxis majorTickInterval="{{tickInterval}}" horizontalLocation="Left" labelSize="10" labelTextColor="#FFFFFF" margin="5"/>
+                                    </chart:RadCartesianChart.horizontalAxis>
+                                </chart:AreaSeries>
+                                <chart:AreaSeries legendTitle="Altitude" showLabels="false" seriesName="Altitude" items="{{ categorySpeed }}" categoryProperty="date" valueProperty="altitude">
+                                    <chart:RadCartesianChart.verticalAxis>
+                                        <chart:LinearAxis horizontalLocation="Left" labelSize="10" lineColor="#182126" lineThickness="1" labelTextColor="#00EAFE" margin="5" labelFormat="%.0f"/>
+                                    </chart:RadCartesianChart.verticalAxis>
+                                    <chart:RadCartesianChart.horizontalAxis  lastLabelVisibility="Hidden">
+                                        <chart:CategoricalAxis majorTickInterval="{{tickInterval}}" horizontalLocation="Left" labelSize="1" labelTextColor="#182126" margin="5"/>
+                                    </chart:RadCartesianChart.horizontalAxis>
+                                </chart:AreaSeries>
+                            </chart:RadCartesianChart.series>    
+
+                            <chart:RadCartesianChart.palettes>
+                                <chart:Palette seriesName="Speed">
+                                    <chart:Palette.entries>
+                                        <chart:PaletteEntry fillColor="#329D4D1C" strokeColor="#F57426"/>
+                                    </chart:Palette.entries>
+                                </chart:Palette>
+                                <chart:Palette seriesName="Altitude">
+                                    <chart:Palette.entries>
+                                        <chart:PaletteEntry fillColor="#320B8D9A" strokeColor="#00EAFE"/>
+                                    </chart:Palette.entries>
+                                </chart:Palette>
+                            </chart:RadCartesianChart.palettes>
+                        </chart:RadCartesianChart>
+                    </ContentView>
+                </android>
+
+
+
+                <StackLayout class="blueDur2" orientation="vertical" horizontalAlignment="left" >
+                        <Label text="{{ L('place') }}" class="sMetric"/>
+                        <TextField id="fPlaceHolder" text="{{ flightPlace }}" autocorrect="false" autocapitalizationType="none" class="flightPlace" width="100%" />
+                        <Label text="{{ L('info') }}" class="sMetric" class="infoText"/>
+                        <TextView id="fInfoHolder" text="{{ flightInfo }}" autocorrect="false" autocapitalizationType="none" class="info" width="100%" returnKeyType="done" />
+                </StackLayout>
+
+                <StackLayout class="updateButton">
+                    <Button text="{{ L('update') }}" tap="onUpdate" class="butUpdate"/>
+                </StackLayout>
+
+                <ios>
+                    <GridLayout columns="*,*,*,*" rows="*">
+                        <ContentView class="butDel" id="cv1" col="0" row="0">
+                            <StackLayout>
+                                <Image src="res://ic_delete" tap="onDelete" class="allButtonsImages"/>
+                                <Label text="{{ L('delete') }}" tap="onDelete" id="bdelete" class="allButtonsText"/>
+                            </StackLayout>
+                        </ContentView>
+                        <ContentView class="butShare" id="cv2"  col="1" row="0">
+                            <StackLayout>
+                                <Image src="res://ic_share" tap="onShare2" class="allButtonsImages"/>
+                                <Label text="{{ L('share') }}" tap="onShare2" id="bshare" class="allButtonsText"/>
+                            </StackLayout>
+                        </ContentView>
+                        <ContentView class="butExport" id="cv3"  col="2" row="0">
+                            <StackLayout>
+                                <Image src="res://ic_export_kml" tap="onExport" class="allButtonsImages"/>
+                                <Label text="{{ L('exportKML') }}" tap="onExport" class="allButtonsText"/>
+                            </StackLayout>
+                        </ContentView>
+                        <ContentView class="butExportGPX" id="cv4"  col="3" row="0">
+                            <StackLayout>
+                                <Image src="res://ic_export_gpx" tap="onExportGPX" class="allButtonsImages"/>
+                                <Label text="{{ L('exportGPX') }}" tap="onExportGPX" class="allButtonsText"/>
+                            </StackLayout>
+                        </ContentView>
+                    </GridLayout>
+                </ios>
+                <android>
+                    <GridLayout columns="*,*,*" rows="*">
+                        <ContentView class="butDel" id="cv1" col="0" row="0">
+                            <StackLayout>
+                                <Image src="res://ic_delete" tap="onDelete" class="allButtonsImages"/>
+                                <Label text="{{ L('delete') }}" tap="onDelete" id="bdelete" class="allButtonsText"/>
+                            </StackLayout>
+                        </ContentView>
+                        <ContentView class="butExport" id="cv3"  col="1" row="0">
+                            <StackLayout>
+                                <Image src="res://ic_export_kml" tap="onExport" class="allButtonsImages"/>
+                                <Label text="{{ L('exportKML') }}" tap="onExport" class="allButtonsText"/>
+                            </StackLayout>
+                        </ContentView>
+                        <ContentView class="butExportGPX" id="cv4"  col="2" row="0">
+                            <StackLayout>
+                                <Image src="res://ic_export_gpx" tap="onExportGPX" class="allButtonsImages"/>
+                                <Label text="{{ L('exportGPX') }}" tap="onExportGPX" class="allButtonsText"/>
+                            </StackLayout>
+                        </ContentView>
+                    </GridLayout>
+                </android>
+
+            </StackLayout>
+        </ContentView>
+
+        </ScrollView>
+        <ContentView row="1" backgroundColor="#3AB8FF">
+        
+        </ContentView>
+        <ContentView row="2">
+            <GridLayout columns="*,*,*" rows="*" class="bottomBar" backgroundColor="#1F272A"> 
+                <Image src="res://ic_dashboard" row="0" col="0" class="dashIcon" id="dashIcon" tap="showDash"  horizontalAlignment="left"></Image> 
+                <Image src="res://ic_flights_on" row="0" col="1" tap="onFlights" class="flightsIcon" id="flightsIcon"></Image>
+                <Image src="res://ic_settings" row="0" col="2" tap="showSettings" class="settingsIcon" id="settingsIcon" horizontalAlignment="right"></Image>
+            </GridLayout>
+        </ContentView>
+    </GridLayout>
+</Page>
